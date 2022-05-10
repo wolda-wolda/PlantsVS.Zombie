@@ -1,3 +1,52 @@
-[gd_scene format=2]
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Plants/Peashooter/Peashooter.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Game/ZombieSpawner.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Environment/Grass.png" type="Texture" id=3]
+
+[sub_resource type="TileSet" id=1]
+0/name = "Grass.png 0"
+0/texture = ExtResource( 3 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 48, 48 )
+0/tile_mode = 2
+0/autotile/icon_coordinate = Vector2( 0, 0 )
+0/autotile/tile_size = Vector2( 16, 16 )
+0/autotile/spacing = 0
+0/autotile/occluder_map = [  ]
+0/autotile/navpoly_map = [  ]
+0/autotile/priority_map = [  ]
+0/autotile/z_index_map = [  ]
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
 
 [node name="Main" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 786450, 0, 131073, 786451, 0, 65537, 786452, 0, 131072, 786453, 0, 65538, 786454, 0, 0, 786455, 0, 131073, 786456, 0, 131074, 786457, 0, 1, 786458, 0, 2, 786459, 0, 2, 786460, 0, 131074, 786461, 0, 131072, 851986, 0, 1, 851987, 0, 0, 851988, 0, 131073, 851989, 0, 131074, 851990, 0, 1, 851991, 0, 131074, 851992, 0, 131073, 851993, 0, 65536, 851994, 0, 131074, 851995, 0, 65536, 851996, 0, 0, 851997, 0, 131073, 917521, 0, 131074, 917522, 0, 2, 917523, 0, 131074, 917524, 0, 65536, 917525, 0, 0, 917526, 0, 0, 917527, 0, 131074, 917528, 0, 131074, 917529, 0, 2, 917530, 0, 65536, 917531, 0, 131073, 917532, 0, 2, 917533, 0, 65537, 983057, 0, 65537, 983058, 0, 0, 983059, 0, 0, 983060, 0, 65536, 983061, 0, 0, 983062, 0, 131072, 983063, 0, 131072, 983064, 0, 0, 983065, 0, 2, 983066, 0, 2, 983067, 0, 65537, 983068, 0, 1, 983069, 0, 131072, 1048593, 0, 131073, 1048594, 0, 65537, 1048595, 0, 0, 1048596, 0, 65536, 1048597, 0, 65536, 1048598, 0, 131074, 1048599, 0, 2, 1048600, 0, 65538, 1048601, 0, 65537, 1048602, 0, 0, 1048603, 0, 131073, 1048604, 0, 131073, 1048605, 0, 2, 1114129, 0, 65536, 1114130, 0, 131073, 1114131, 0, 131074, 1114132, 0, 131074, 1114133, 0, 1, 1114134, 0, 131073, 1114135, 0, 65537, 1114136, 0, 131072, 1114137, 0, 1, 1114138, 0, 65538, 1114139, 0, 2, 1114140, 0, 65538, 1114141, 0, 65536, 1179665, 0, 131074, 1179666, 0, 1, 1179667, 0, 65537, 1179668, 0, 65538, 1179669, 0, 131074, 1179670, 0, 131073, 1179671, 0, 65537, 1179672, 0, 131072, 1179673, 0, 65538, 1179674, 0, 131072, 1179675, 0, 65538, 1179676, 0, 1, 1179677, 0, 1 )
+
+[node name="Peashooter" parent="." instance=ExtResource( 1 )]
+position = Vector2( 387, 255 )
+
+[node name="Peashooter2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 387, 220 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 389, 257 )
+current = true
+zoom = Vector2( 0.2, 0.2 )
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="ZombieSpawner" parent="." instance=ExtResource( 2 )]
+position = Vector2( 491, 255 )
