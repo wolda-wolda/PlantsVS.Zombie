@@ -7,7 +7,6 @@ signal buy_plant(plant)
 
 # VARIABLES
 var plant: Plant
-var plantInfo: MarginContainer
 
 # ENGINE METHODS
 
@@ -16,15 +15,6 @@ var plantInfo: MarginContainer
 func _ready() -> void:
 	$VBoxContainer/TextureRect.texture = plant.texture
 	$VBoxContainer/Label.text = str(plant.cost)
-
-# UI updates
-
-# Toggle the visibility of the tooltip on the UI
-func _showTooltip() -> void:
-	$Frame/PlantInfo.setValues(plant)
-	$Frame/PlantInfo.show()
-	$TooltipTimer.stop()
-
 
 # SIGNAL METHODS
 
