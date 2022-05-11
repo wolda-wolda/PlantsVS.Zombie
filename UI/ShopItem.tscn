@@ -33,3 +33,8 @@ margin_bottom = 42.0
 text = "100"
 align = 1
 valign = 1
+
+[node name="Button" type="Button" parent="."]
+margin_right = 32.0
+margin_bottom = 44.0
+flat = true
