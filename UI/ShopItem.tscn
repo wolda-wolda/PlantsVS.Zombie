@@ -1,12 +1,14 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Assets/Plants/Peashooter/Peashooter_1.png" type="Texture" id=1]
 [ext_resource path="res://UI/Frame.tscn" type="PackedScene" id=2]
+[ext_resource path="res://UI/ShopItem.gd" type="Script" id=3]
 
 [node name="ShopItem" type="MarginContainer"]
 margin_right = 32.0
 margin_bottom = 44.0
 rect_min_size = Vector2( 32, 44 )
+script = ExtResource( 3 )
 
 [node name="Frame" parent="." instance=ExtResource( 2 )]
 margin_right = 32.0
