@@ -1,21 +1,5 @@
-[gd_scene load_steps=2 format=2]
-
-[ext_resource path="res://Assets/UI/Frame16x16.png" type="Texture" id=1]
+[gd_scene format=2]
 
 [node name="ShopItem" type="MarginContainer"]
-margin_right = 42.0
-margin_bottom = 48.0
-
-[node name="Frame" type="NinePatchRect" parent="."]
-margin_right = 42.0
-margin_bottom = 48.0
-size_flags_vertical = 3
-texture = ExtResource( 1 )
-patch_margin_left = 3
-patch_margin_top = 3
-patch_margin_right = 3
-patch_margin_bottom = 3
-
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
 margin_right = 42.0
 margin_bottom = 48.0
