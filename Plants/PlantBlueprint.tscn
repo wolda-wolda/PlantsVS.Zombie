@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Game/HitHurtbox.tscn" type="PackedScene" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8, 8 )
+
+[node name="PlantBlueprint" type="Node2D"]
+
+[node name="States" type="Node2D" parent="."]
+
+[node name="State0" type="AnimatedSprite" parent="States"]
+playing = true
+
+[node name="State1" type="AnimatedSprite" parent="States"]
+visible = false
+playing = true
+
+[node name="State2" type="AnimatedSprite" parent="States"]
+visible = false
+playing = true
+
+[node name="AttackTimer" type="Timer" parent="."]
+
+[node name="EnemyDetection" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 100, 0 )
+collision_mask = 4
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="HurtBox" parent="." instance=ExtResource( 1 )]
+collision_layer = 24
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+shape = SubResource( 1 )
+
+[editable path="HurtBox"]
