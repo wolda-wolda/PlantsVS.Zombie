@@ -1,0 +1,19 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://Plants/Peashooter/Peashooter_Frames.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://Plants/Plant.gd" type="Script" id=2]
+[ext_resource path="res://Plants/Peashooter/Peashooter.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Plants/Peashooter/Peashooter_1.png" type="Texture" id=4]
+
+[resource]
+script = ExtResource( 2 )
+name = "Peashooter"
+hp = 100
+cost = 100
+cooldown = 4.0
+attackInterval = 1.5
+attackRange = 150.0
+animationSpeedScale = 1.0
+spriteFrames0 = ExtResource( 1 )
+texture = ExtResource( 4 )
+plantScript = ExtResource( 3 )

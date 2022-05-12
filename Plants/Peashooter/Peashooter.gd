@@ -1,11 +1,8 @@
-extends Node2D
+extends "res://Plants/GeneralPlant.gd"
 
-var projectile=preload("res://Projectiles/Projectiles.tscn")
 
-func shoot() -> void:
-	var p = projectile.instance()
-	add_child(p)
-	
-func _on_Timer_timeout() -> void:
-	if $RayCast2D.is_colliding():
-		shoot()
+# Shoot a projectile
+func performAction() -> void:
+	if $EnemyDetection.is_colliding():
+		var projectile = Entities.PeashooterProjectile.instance()
+		add_child(projectile)
