@@ -18,10 +18,16 @@ _global_script_classes=[ {
 "class": "Plant",
 "language": "GDScript",
 "path": "res://Plants/Plant.gd"
+}, {
+"base": "Node",
+"class": "PlantCreator",
+"language": "GDScript",
+"path": "res://Plants/PlantCreator.gd"
 } ]
 _global_script_class_icons={
 "GitAPI": "",
-"Plant": ""
+"Plant": "",
+"PlantCreator": ""
 }
 
 [application]
