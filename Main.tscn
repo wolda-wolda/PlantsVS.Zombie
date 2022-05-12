@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
+[ext_resource path="res://UI/Shop.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Environment/Grass.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Environment/Fence.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Environment/Sky.png" type="Texture" id=5]
@@ -78,3 +79,9 @@ zoom = Vector2( 0.2, 0.2 )
 [node name="Zombies" type="YSort" parent="."]
 
 [node name="Plants" type="YSort" parent="."]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Shop" parent="UI" instance=ExtResource( 1 )]
+margin_right = 0.0
+margin_bottom = 0.0
