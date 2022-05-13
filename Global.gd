@@ -6,4 +6,4 @@ var balance:int = 100 setget set_balance
 
 func set_balance(value:int):
 	balance = value
-	main.get_node("UI/Balance").set_balance(value)
+	main.get_node("UI/Economy/Balance").set_balance(value)
