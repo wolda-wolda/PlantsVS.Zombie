@@ -22,4 +22,4 @@ func _ready() -> void:
 # Connects a signals to recognize if the plant has been placed
 func _on_Button_button_down() -> void:
 	emit_signal("buy_plant", plant)
-	Global.main.get_node("PlacementSystem").connect("plant_placed", self, "_on_plant_placed", [], CONNECT_ONESHOT)
+	#Global.main.get_node("PlacementSystem").connect("plant_placed", self, "_on_plant_placed", [], CONNECT_ONESHOT)

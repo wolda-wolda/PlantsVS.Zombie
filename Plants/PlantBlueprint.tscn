@@ -7,6 +7,8 @@ extents = Vector2( 8, 8 )
 
 [node name="PlantBlueprint" type="Node2D"]
 
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+
 [node name="AttackTimer" type="Timer" parent="."]
 
 [node name="EnemyDetection" type="RayCast2D" parent="."]
