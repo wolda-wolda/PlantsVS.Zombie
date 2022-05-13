@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/Other/Sun/Sun_1.png" type="Texture" id=1]
+[ext_resource path="res://UI/Frame.tscn" type="PackedScene" id=2]
+[ext_resource path="res://UI/Balance.gd" type="Script" id=3]
+
+[node name="Balance" type="MarginContainer"]
+margin_right = 56.0
+margin_bottom = 28.0
+script = ExtResource( 3 )
+
+[node name="Frame" parent="." instance=ExtResource( 2 )]
+margin_right = 56.0
+margin_bottom = 28.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_right = 56.0
+margin_bottom = 28.0
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+margin_right = 24.0
+margin_bottom = 28.0
+rect_min_size = Vector2( 24, 24 )
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+margin_left = 28.0
+margin_top = 8.0
+margin_right = 56.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "100"
+align = 1

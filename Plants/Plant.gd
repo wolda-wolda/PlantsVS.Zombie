@@ -9,9 +9,6 @@ export(int) var cost
 export(float) var cooldown
 export(float) var attackInterval
 export(float) var attackRange
-export(float) var animationSpeedScale = 1.0
-export(SpriteFrames) var spriteFrames0
-export(SpriteFrames) var spriteFrames1
-export(SpriteFrames) var spriteFrames2
+export(SpriteFrames) var spriteFrames
 export(Texture) var texture
 export(Script) var plantScript

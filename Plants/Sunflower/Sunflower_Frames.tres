@@ -1,0 +1,16 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=2]
+
+[ext_resource path="res://Assets/Plants/Sunflower/Sunflower_5.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Plants/Sunflower/Sunflower_2.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Plants/Sunflower/Sunflower_6.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Plants/Sunflower/Sunflower_3.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Plants/Sunflower/Sunflower_4.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Plants/Sunflower/Sunflower_1.png" type="Texture" id=6]
+
+[resource]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 1 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "Sunflower",
+"speed": 6.0
+} ]

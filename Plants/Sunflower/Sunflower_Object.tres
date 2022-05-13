@@ -1,0 +1,18 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://Plants/Plant.gd" type="Script" id=1]
+[ext_resource path="res://Plants/Sunflower/Sunflower_Frames.tres" type="SpriteFrames" id=2]
+[ext_resource path="res://Plants/Sunflower/Sunflower.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Plants/Sunflower/Sunflower_1.png" type="Texture" id=4]
+
+[resource]
+script = ExtResource( 1 )
+name = ""
+hp = 100
+cost = 50
+cooldown = 4.0
+attackInterval = 12.0
+attackRange = 0.0
+spriteFrames = ExtResource( 2 )
+texture = ExtResource( 4 )
+plantScript = ExtResource( 3 )
