@@ -31,7 +31,7 @@ func _on_plant_placed() -> void:
 
 func _on_PlantCooldown_timeout() -> void:
 	$PlantCooldown.stop()
-	modulate = Color (1, 1, 1)
+	modulate = Color(1, 1, 1)
 
 func _onChangedBalance() -> void:
 	if Global.balance >= plant.cost:
