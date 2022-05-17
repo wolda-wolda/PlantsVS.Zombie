@@ -41,4 +41,7 @@ margin_right = 32.0
 margin_bottom = 44.0
 flat = true
 
+[node name="PlantCooldown" type="Timer" parent="."]
+
 [connection signal="button_down" from="Button" to="." method="_on_Button_button_down"]
+[connection signal="timeout" from="PlantCooldown" to="." method="_on_PlantCooldown_timeout"]

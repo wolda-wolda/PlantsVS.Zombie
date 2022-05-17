@@ -1,6 +1,7 @@
 extends Node2D
 
 var plantInstance: Node2D
+signal plant_placed
 
 func _ready() -> void:
 	set_process(false)
@@ -23,4 +24,5 @@ func _input(event: InputEvent) -> void:
 		queue_free()
 	elif event is InputEventMouseButton:
 		print("Links-Klick")
+		emit_signal("plant_placed")
 
