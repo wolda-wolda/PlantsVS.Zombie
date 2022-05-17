@@ -7,6 +7,9 @@ var PlacementSystem = preload("res://Game/PlacementSystem.tscn")
 
 var balance: int = 70 setget set_balance
 
+signal changedBalance 
+
 func set_balance(value:int) -> void:
 	balance = value
 	main.get_node("UI/Economy/Balance").set_balance(value)
+	emit_signal("changedBalance")
