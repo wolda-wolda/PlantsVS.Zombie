@@ -15,4 +15,12 @@ func start(plant: Plant):
 	plantCreator.queue_free()
 	Global.main.get_node("Plants").add_child(plantInstance)
 	set_process(true)
-	
+
+func _input(event: InputEvent) -> void:
+	if (event.is_pressed() and event.button_index == BUTTON_RIGHT):
+		print("Rechts-Klick")
+		plantInstance.queue_free()
+		queue_free()
+	elif event is InputEventMouseButton:
+		print("Links-Klick")
+
