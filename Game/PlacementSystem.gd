@@ -17,7 +17,7 @@ func start(plant: Plant):
 	set_process(true)
 
 func _input(event: InputEvent) -> void:
-	if (event.is_action_pressed("placementSystem_cancel")):
+	if event.is_action_pressed("placementSystem_cancel"):
 		print("Rechts-Klick")
 		plantInstance.queue_free()
 		queue_free()
