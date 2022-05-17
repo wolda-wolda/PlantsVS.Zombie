@@ -26,7 +26,6 @@ func _on_Button_button_down() -> void:
 			Global.main.get_node("PlacementSystem").connect("plant_placed", self, "_on_plant_placed", [], CONNECT_ONESHOT)
 
 func _on_plant_placed() -> void:
-	print("cock")
 	$PlantCooldown.start(plant.cooldown)
 	modulate = Color(0.8, 0.8, 0.8)
 

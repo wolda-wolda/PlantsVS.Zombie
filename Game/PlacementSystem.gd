@@ -12,17 +12,15 @@ func _process(delta: float) -> void:
 func start(plant: Plant):
 	var plantCreator = PlantCreator.new(plant)
 	plantInstance = plantCreator.getPlant()
-	print(plantInstance)
 	plantCreator.queue_free()
 	Global.main.get_node("Plants").add_child(plantInstance)
 	set_process(true)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("placementSystem_cancel"):
-		print("Rechts-Klick")
 		plantInstance.queue_free()
 		queue_free()
 	elif event.is_action_pressed("placementSystem_place"):
-		print("Links-Klick")
 		emit_signal("plant_placed")
-
+		plantInstance.initialize()
+		queue_free()
