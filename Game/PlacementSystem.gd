@@ -22,7 +22,7 @@ func _input(event: InputEvent) -> void:
 		print("Rechts-Klick")
 		plantInstance.queue_free()
 		queue_free()
-	elif event is InputEventMouseButton:
+	elif event.is_action_pressed("placementSystem_place"):
 		print("Links-Klick")
 		emit_signal("plant_placed")
 
