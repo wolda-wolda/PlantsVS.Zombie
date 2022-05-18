@@ -14,12 +14,27 @@
 extends Node2D
 
 
+# ENGINE METHODS
+
 func _ready() -> void:
 	Global.ui.get_node("Economy/Shop").connect("plant_selected", self, "_onPlantSelected")
 
-func _onPlantSelected(plant: Plant) -> void:
-	if !Global.main.has_node("PlacementSystem"):
-		var placementSystem = Global.PlacementSystem.instance()
+# METHODS
+
+# Add and start a placement system if there isn't already one
+func addPlacementSystem(mode: int, plant: Node2D) -> void:
+	if !has_node("PlacementSystem"):
+		var placementSystem: Node2D = Global.PlacementSystem.instance()
 		placementSystem.name = "PlacementSystem"
 		add_child(placementSystem)
-		placementSystem.start(plant)
+		placementSystem.start(mode, plant)
+
+# SIGNAL METHODS
+
+# Create a plant creator and add it into a new placementsystem
+# After the placement system terminated, free it
+func _onPlantSelected(plant: Plant) -> void:
+	var plantCreator: PlantCreator = PlantCreator.new(plant)
+	addPlacementSystem(Global.mode.PLACE, plantCreator.getPlant())
+	plantCreator.queue_free()
+	

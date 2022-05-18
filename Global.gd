@@ -9,6 +9,18 @@ var balance: int = 70 setget set_balance
 
 signal changedBalance 
 
+# ENUMS
+
+enum mode {
+	PLACE,
+	REMOVE
+}
+
+enum fade {
+	IN,
+	OUT
+}
+
 func set_balance(value:int) -> void:
 	balance = value
 	main.get_node("UI/Economy/Balance").set_balance(value)

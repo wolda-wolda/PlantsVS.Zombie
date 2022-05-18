@@ -1,39 +1,62 @@
 extends Node2D
+# Handles object placement using the mouse as input
+# Moves the objects in 16x16 steps for them to align
+# with the grid
 
-var plantInstance: Node2D
+
+# SIGNALS
 signal plant_placed
 
+# VARIABLES
+var node
+var mode: int = Global.mode.PLACE
 var rayCast: RayCast2D
-var inBounds: bool
 
-func _ready() -> void:
-	set_process(false)
+# EGNINE METHODS
 
-# Change the node's color accodring to if it 
-# can be placed at the current position or not
-func _process(_delta: float) -> void:
-	if _isInBounds() and !rayCast.is_colliding():
-		plantInstance.modulate = Color(0, 1, 0)
+# Handles placing the object and cancelling the placement
+# Updates the balance if the node was placed
+# Frees itself at the end
+func _input(_event: InputEvent) -> void:
+	var inBounds: bool = _isInBounds()
+	if inBounds and !rayCast.is_colliding():
+		node.modulate = Color(0, 1, 0)
 	else:
-		plantInstance.modulate = Color(1, 0, 0)
-
-func _input(event: InputEvent) -> void:
-	_setPlantPosition()
-	if event.is_action_pressed("placementSystem_cancel"):
-		plantInstance.queue_free()
+		node.modulate = Color(1, 0, 0)
+	_setNodePosition()
+	if Input.is_action_just_pressed("placementSystem_cancel"):
 		queue_free()
-	elif event.is_action_pressed("placementSystem_place"):
+	elif Input.is_action_just_pressed("placementSystem_place") and inBounds\
+	and !rayCast.is_colliding() and mode == Global.mode.PLACE:
+		Global.balance -= node.cost
+		set_process(false)
+		node.modulate = Color(1, 1, 1)
+		node.initialize()
+		rayCast.queue_free()
+		remove_child(node)
+		get_node("/root/Main/Plants").add_child(node)
 		emit_signal("plant_placed")
-		plantInstance.initialize()
+		queue_free()
+	elif Input.is_action_just_pressed("placementSystem_place") and rayCast.is_colliding() and mode == Global.mode.REMOVE:
+		var collider: Area2D = rayCast.get_collider()
+		var plant: Node2D = collider.get_parent()
+		plant.queue_free()
 		queue_free()
 
-func start(plant: Plant):
+# METHODS
+
+# Start the building process
+# Create necessary raycast for recognizing collisions
+# with other plants
+func start(placingMode: int, newNode: Node2D) -> void:
+	node = newNode
+	mode = placingMode
 	_createRayCast()
-	var plantCreator = PlantCreator.new(plant)
-	plantInstance = plantCreator.getPlant()
-	plantCreator.queue_free()
-	Global.main.get_node("Plants").add_child(plantInstance)
-	set_process(true)
+	node.add_child(rayCast)
+	if mode == Global.mode.REMOVE:
+		rayCast.set_collision_mask_bit(3, false)
+	_setNodePosition()
+	add_child(node)
 
 # Create a raycast which is set up for recognizing
 # collision with other plants
@@ -47,12 +70,13 @@ func _createRayCast() -> void:
 	rayCast.collide_with_areas = true
 	rayCast.collide_with_bodies = false
 
-func _isInBounds() -> bool:
-	return plantInstance.position.x < 192 and plantInstance.position.x > 0 and\
-	plantInstance.position.y < 80 and plantInstance.position.y > 0
-
 # Update the node's position
-func _setPlantPosition() -> void:
-	plantInstance.position.x = stepify(get_global_mouse_position().x - 8, 16.0)
-	plantInstance.position.y = stepify(get_global_mouse_position().y - 8, 16.0)
-	plantInstance.position += Vector2(8, 8)
+func _setNodePosition() -> void:
+	node.position.x = stepify(get_global_mouse_position().x - 8, 16.0)
+	node.position.y = stepify(get_global_mouse_position().y - 8, 16.0)
+	node.position += Vector2(8, 8)
+
+# Return the bounds of the playing grid
+func _isInBounds() -> bool:
+	return node.position.x < 192 and node.position.x > 0 and\
+	node.position.y < 80 and node.position.y > 0
