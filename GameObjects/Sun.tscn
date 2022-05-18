@@ -1,33 +1,92 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Assets/Other/Sun/Sun_1.png" type="Texture" id=1]
-[ext_resource path="res://Assets/Other/Sun/Sun_2.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Other/Sun/Sun_3.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Other/Sun/Sun_4.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Other/Sun/Sun_3.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Other/Sun/Sun_4.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Other/Sun/Sun_1.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Other/Sun/Sun_2.png" type="Texture" id=4]
 [ext_resource path="res://GameObjects/Sun.gd" type="Script" id=5]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 1 ), ExtResource( 2 ) ],
 "loop": true,
 "name": "default",
 "speed": 4.0
 } ]
 
+[sub_resource type="Animation" id=4]
+resource_name = "Passive"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 10 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 20, 220 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 10 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Spawn"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 5, -20 ), Vector2( 10, -10 ) ]
+}
+
 [node name="Sun" type="Node2D"]
+position = Vector2( 15, 0 )
 script = ExtResource( 5 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-frames = SubResource( 1 )
-playing = true
-
-[node name="Button" type="Button" parent="AnimatedSprite"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -8.0
-margin_top = -8.0
-margin_right = -8.0
-margin_bottom = -8.0
+[node name="Button" type="Button" parent="."]
+margin_left = -10.0
+margin_top = -10.0
+margin_right = 10.0
+margin_bottom = 10.0
+focus_mode = 0
+enabled_focus_mode = 0
 flat = true
 
-[connection signal="pressed" from="AnimatedSprite/Button" to="." method="_on_Button_pressed"]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+z_index = 1
+frames = SubResource( 1 )
+frame = 2
+speed_scale = 2.0
+playing = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Passive = SubResource( 4 )
+anims/Spawn = SubResource( 3 )
+
+[node name="DespawnTimer" type="Timer" parent="."]
+wait_time = 7.0
+autostart = true
+
+[connection signal="button_down" from="Button" to="." method="_on_Button_button_down"]
+[connection signal="timeout" from="DespawnTimer" to="." method="_on_DespawnTimer_timeout"]
