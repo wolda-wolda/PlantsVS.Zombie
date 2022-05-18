@@ -17,14 +17,14 @@ extends Node2D
 # ENGINE METHODS
 
 func _ready() -> void:
-	Global.ui.get_node("Economy/Shop").connect("plant_selected", self, "_onPlantSelected")
+	Global.GUI.get_node("VBoxEconomy/Shop").connect("plant_selected", self, "_onPlantSelected")
 
 # METHODS
 
 # Add and start a placement system if there isn't already one
 func addPlacementSystem(mode: int, plant: Node2D) -> void:
 	if !has_node("PlacementSystem"):
-		var placementSystem: Node2D = Global.PlacementSystem.instance()
+		var placementSystem: Node2D = Entities.PlacementSystem.instance()
 		placementSystem.name = "PlacementSystem"
 		add_child(placementSystem)
 		placementSystem.start(mode, plant)

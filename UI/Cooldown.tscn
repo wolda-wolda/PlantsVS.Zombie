@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://UI/Cooldown.gd" type="Script" id=1]
+[ext_resource path="res://Assets/UI/CooldownProgress.png" type="Texture" id=2]
+[ext_resource path="res://Assets/UI/CooldownUnder.png" type="Texture" id=3]
+
+[node name="Cooldown" type="TextureProgress"]
+margin_right = 16.0
+margin_bottom = 24.0
+texture_under = ExtResource( 3 )
+texture_progress = ExtResource( 2 )
+fill_mode = 2
+script = ExtResource( 1 )

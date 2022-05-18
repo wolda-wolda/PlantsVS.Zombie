@@ -59,7 +59,7 @@ func start(placingMode: int, newNode: Node2D) -> void:
 	add_child(node)
 
 # Create a raycast which is set up for recognizing
-# collision with other plants
+# collision with other plants	
 func _createRayCast() -> void:
 	rayCast = RayCast2D.new()
 	rayCast.set_collision_mask_bit(0, false)

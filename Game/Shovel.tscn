@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/Other/Shovel/Shovel.png" type="Texture" id=3]
+
+[node name="Shovel" type="Node2D"]
+
+[node name="Shovel" type="Sprite" parent="."]
+rotation = 2.29511
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )

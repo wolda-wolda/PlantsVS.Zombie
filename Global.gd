@@ -1,13 +1,31 @@
 extends Node
 
-onready var main: Node2D = get_node("/root/Main")
-onready var ui: CanvasLayer = main.get_node("UI")
+# SIGNALS
 
-var PlacementSystem = preload("res://Game/PlacementSystem.tscn")
+signal balance_changed
 
-var balance: int = 100 setget set_balance
+# NODEPATHS
 
-signal changedBalance 
+onready var main: Node = get_node("/root/Main")
+onready var GUI: Control = main.get_node("UI/GUI")
+onready var balanceUI: MarginContainer = GUI.get_node("VBoxEconomy/Balance")
+onready var Blur: ColorRect = GUI.get_node("Blur")
+
+# UI CONSTANTS
+
+const UI_SCALE: Vector2 = Vector2(2, 2)
+const UI_BLUR_AMOUNT: float = 1.7
+const UI_ANIMATION_DURATION: float = 0.3
+const TOOLTIP_DELAY: float = 0.5
+
+# ECONOMY VARIABLES
+
+var balance: int = 100 setget setBalance
+
+# ECONOMY CONSTANTS
+
+const BALANCE_CAP: int = 950
+const sunValue: int = 50
 
 # ENUMS
 
@@ -21,7 +39,21 @@ enum fade {
 	OUT
 }
 
-func set_balance(value:int) -> void:
-	balance = value
-	main.get_node("UI/Economy/Balance").set_balance(value)
-	emit_signal("changedBalance")
+# ENGINE METHODS
+
+func _ready() -> void:
+	pause_mode = PAUSE_MODE_PROCESS
+
+# Handles UI input
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("fullscreen"):
+		OS.window_fullscreen = !OS.window_fullscreen
+
+# SETTERS
+
+func setBalance(amount: int) -> void:
+	balance = amount
+	if balance > BALANCE_CAP:
+		balance = BALANCE_CAP
+	balanceUI.setBalance(balance)
+	emit_signal("balance_changed")

@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://UI/Frame.tscn" type="PackedScene" id=1]
+[ext_resource path="res://UI/ShovelUI.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Other/Shovel/Shovel.png" type="Texture" id=3]
+
+[node name="Shovel" type="MarginContainer"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -64.0
+margin_bottom = 32.0
+script = ExtResource( 2 )
+
+[node name="Frame" parent="." instance=ExtResource( 1 )]
+margin_right = 64.0
+margin_bottom = 32.0
+
+[node name="Item" type="TextureRect" parent="."]
+margin_right = 64.0
+margin_bottom = 32.0
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 5
+
+[node name="Button" type="Button" parent="."]
+margin_right = 64.0
+margin_bottom = 32.0
+focus_mode = 0
+enabled_focus_mode = 0
+flat = true
+
+[connection signal="button_down" from="Button" to="." method="_on_Button_button_down"]
