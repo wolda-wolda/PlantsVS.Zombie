@@ -5,7 +5,7 @@ onready var ui: CanvasLayer = main.get_node("UI")
 
 var PlacementSystem = preload("res://Game/PlacementSystem.tscn")
 
-var balance: int = 70 setget set_balance
+var balance: int = 100 setget set_balance
 
 signal changedBalance 
 
