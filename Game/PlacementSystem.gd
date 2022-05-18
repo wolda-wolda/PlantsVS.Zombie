@@ -78,5 +78,5 @@ func _setNodePosition() -> void:
 
 # Return the bounds of the playing grid
 func _isInBounds() -> bool:
-	return node.position.x < 192 and node.position.x > 0 and\
+	return node.position.x < 192 and node.position.x > 16 and\
 	node.position.y < 80 and node.position.y > 0
