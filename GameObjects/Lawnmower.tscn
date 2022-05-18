@@ -1,0 +1,33 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Assets/Other/Lawnmower/LawnMower_4.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Other/Lawnmower/LawnMower_1.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Other/Lawnmower/LawnMower_3.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Other/Lawnmower/LawnMower_2.png" type="Texture" id=4]
+[ext_resource path="res://Game/HitHurtbox.tscn" type="PackedScene" id=5]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 4.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 12.5, 7 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+
+[node name="HitHurtbox" parent="." instance=ExtResource( 5 )]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="HitHurtbox" index="0"]
+position = Vector2( 2.5, 3 )
+shape = SubResource( 2 )
+
+[editable path="HitHurtbox"]
