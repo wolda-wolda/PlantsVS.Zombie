@@ -83,10 +83,6 @@ zoom = Vector2( 0.2, 0.2 )
 
 [node name="Plants" type="YSort" parent="."]
 
-[node name="UI" type="CanvasLayer" parent="."]
-
-[node name="GUI" parent="UI" instance=ExtResource( 1 )]
-
 [node name="Lawnmower" type="YSort" parent="."]
 
 [node name="Node2D" parent="Lawnmower" instance=ExtResource( 7 )]
@@ -103,3 +99,7 @@ position = Vector2( 0, 56 )
 
 [node name="Node2D5" parent="Lawnmower" instance=ExtResource( 7 )]
 position = Vector2( 0, 72 )
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="GUI" parent="UI" instance=ExtResource( 1 )]
