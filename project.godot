@@ -692,12 +692,12 @@ _global_script_classes=[ {
 "base": "Resource",
 "class": "Zombie",
 "language": "GDScript",
-"path": "res://Zombie/Zombie.gd"
+"path": "res://Zombies/Zombie.gd"
 }, {
 "base": "Node",
 "class": "ZombieCreator",
 "language": "GDScript",
-"path": "res://Zombie/ZombieCreator.gd"
+"path": "res://Zombies/ZombieCreator.gd"
 }, {
 "base": "Node",
 "class": "_TestCase",

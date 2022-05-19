@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://Zombies/Zombie.gd" type="Script" id=1]
+[ext_resource path="res://Zombies/GenericZombie/GenericZombie_Frames_Walking.tres" type="SpriteFrames" id=2]
+[ext_resource path="res://Zombies/GenericZombie/GenericZombie_Frames_Eating.tres" type="SpriteFrames" id=3]
+[ext_resource path="res://Zombies/GenericZombie/GenericZombie.gd" type="Script" id=4]
+
+[resource]
+script = ExtResource( 1 )
+hp = 100
+cost = 10
+movementSpeed = 4.0
+attackInterval = 0.7
+spriteFramesWalking = ExtResource( 2 )
+spriteFramesEating = ExtResource( 3 )
+zombieScript = ExtResource( 4 )

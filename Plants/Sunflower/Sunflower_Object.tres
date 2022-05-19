@@ -7,7 +7,7 @@
 
 [resource]
 script = ExtResource( 1 )
-name = ""
+name = "Sunflower"
 hp = 100
 cost = 50
 cooldown = 4.0

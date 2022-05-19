@@ -41,7 +41,7 @@ func finalWave() -> void:
 		else:
 			zombieCreator = ZombieCreator.new(genericZombie)
 		var zombieBlueprint: Node2D = zombieCreator.getZombie()
-		zombieBlueprint.position = Vector2(220, 16 * rng.randi_range(2, 6) + 8)
+		zombieBlueprint.position = Vector2(220, 16 * rng.randi_range(0, 4) + 8)
 		get_parent().get_node("Zombies").add_child(zombieBlueprint)
 		waveCredits -= zombieBlueprint.cost
 		waveCreditsSpent += zombieBlueprint.cost

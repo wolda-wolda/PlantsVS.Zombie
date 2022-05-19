@@ -9,7 +9,7 @@ var PlantInfo: PackedScene = preload("res://UI/PlantInfo.tscn")
 # BLUEPRINT SCENES
 
 var PlantBlueprint: PackedScene = preload("res://Plants/PlantBlueprint.tscn")
-#var ZombieBlueprint: PackedScene = preload("res://Zombies/ZombieBlueprint.tscn")
+var ZombieBlueprint: PackedScene = preload("res://Zombies/ZombieBlueprint.tscn")
 
 # PROJECTILE SCENES
 
