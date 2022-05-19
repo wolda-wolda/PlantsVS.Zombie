@@ -690,6 +690,11 @@ _global_script_classes=[ {
 "path": "res://addons/gdUnit3/src/report/XmlElement.gd"
 }, {
 "base": "Node",
+"class": "ZombieCreator",
+"language": "GDScript",
+"path": "res://Zombie/ZombieCreator.gd"
+}, {
+"base": "Node",
 "class": "_TestCase",
 "language": "GDScript",
 "path": "res://addons/gdUnit3/src/core/_TestCase.gd"
@@ -836,6 +841,7 @@ _global_script_class_icons={
 "Vector2Fuzzer": "",
 "Vector3Fuzzer": "",
 "XmlElement": "",
+"ZombieCreator": "",
 "_TestCase": "",
 "_TestSuiteScanner": ""
 }

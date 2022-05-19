@@ -1,14 +1,14 @@
-extends Node2D
-
-var movementSpeed:float=-10.0
-var hp:int=100
-
-func _process(delta: float) -> void:
-	position.x += movementSpeed * delta
+extends Resource
+class_name Zombie
+# Class which specifies stats, sprites and scripts for zombies
 
 
-func _on_Area2D_area_entered(area: Area2D) -> void:
-	hp -= 10
-	
-	if hp<=0:
-		queue_free()
+export(int) var hp
+export(int) var cost
+export(float) var movementSpeed
+export(float) var attackInterval
+export(SpriteFrames) var spriteFramesWalking
+export(SpriteFrames) var spriteFramesWalkingAccessory
+export(SpriteFrames) var spriteFramesEating
+export(SpriteFrames) var spriteFramesEatingAccessory
+export(Script) var zombieScript
