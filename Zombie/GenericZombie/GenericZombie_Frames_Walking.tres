@@ -1,0 +1,16 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=2]
+
+[ext_resource path="res://Assets/Zombies/GenericZombie/Walking/GenericZombie_Walking_1.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Zombies/GenericZombie/Walking/GenericZombie_Walking_2.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Zombies/GenericZombie/Walking/GenericZombie_Walking_4.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Zombies/GenericZombie/Walking/GenericZombie_Walking_5.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Zombies/GenericZombie/Walking/GenericZombie_Walking_6.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Zombies/GenericZombie/Walking/GenericZombie_Walking_3.png" type="Texture" id=6]
+
+[resource]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 6 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 6.0
+} ]

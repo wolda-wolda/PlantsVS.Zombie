@@ -11,3 +11,4 @@ func _ready() -> void:
 
 func _on_HitHurtbox_area_entered(area: Area2D) -> void:
 	set_process(true)
+	$AnimationPlayer.start("Shake")
