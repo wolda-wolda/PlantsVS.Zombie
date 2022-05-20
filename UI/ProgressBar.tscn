@@ -6,7 +6,7 @@
 
 [node name="TextureProgress" type="TextureProgress"]
 margin_right = 40.0
-margin_bottom = 40.0
+margin_bottom = 18.0
 value = 50.0
 texture_under = ExtResource( 1 )
 texture_progress = ExtResource( 2 )
