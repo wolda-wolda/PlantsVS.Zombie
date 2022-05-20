@@ -36,6 +36,14 @@ func _process(delta: float) -> void:
 # Adds effects on specific events
 # Frees itself if the HP falls low
 func takeDamage(damage: int) -> void:
+	if hp == maxHp / 2:
+		var onFallEffect: OnFallEffect = OnFallEffect.new(self, $Walking/WalkingAccessory.position, "setAccessoryPosition", "setAccessoryModulate", "setAccessoryRotation")
+		add_child(onFallEffect)
+		onFallEffect.start()
+	if $SlowTimer.is_stopped():
+		var onBodyEffect: OnBodyEffect = OnBodyEffect.new(self, modulate, Color(1.2, 1.2, 1.2), 0.1, 0.1, "setBodyModulate")
+		add_child(onBodyEffect)
+		onBodyEffect.start()
 	hp -= damage
 	if hp < 1:
 		queue_free()
@@ -43,6 +51,9 @@ func takeDamage(damage: int) -> void:
 # Slows the Zombie and adds a slow effect
 # Modifies the overall speed scale, thus also the animations
 func slow(seconds: float) -> void:
+	var onBodyEffect: OnBodyEffect = OnBodyEffect.new(self, modulate, Color(0, 0.75, 1), seconds - 0.5, 0.5, "setBodyModulate")
+	add_child(onBodyEffect)
+	onBodyEffect.start()
 	_setOverallSpeedScale(0.75)
 	$SlowTimer.start(seconds)
 
