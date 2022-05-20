@@ -1,7 +1,7 @@
 extends "res://Plants/GeneralPlant.gd"
 
 
-var Projectile: PackedScene = preload("res://Projectiles/Projectiles.tscn")
+var Projectile: PackedScene = preload("res://Projectiles/Peashooter/PeashooterProjectile.tscn")
 
 # Shoot a projectile
 func performAction() -> void:
