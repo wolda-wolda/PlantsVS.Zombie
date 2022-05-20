@@ -84,21 +84,21 @@ zoom = Vector2( 0.2, 0.2 )
 
 [node name="Plants" type="YSort" parent="."]
 
-[node name="Lawnmower" type="YSort" parent="."]
+[node name="Lawnmowers" type="YSort" parent="."]
 
-[node name="Node2D" parent="Lawnmower" instance=ExtResource( 7 )]
+[node name="Lawnmower" parent="Lawnmowers" instance=ExtResource( 7 )]
 position = Vector2( 0, 8 )
 
-[node name="Node2D2" parent="Lawnmower" instance=ExtResource( 7 )]
+[node name="Lawnmower2" parent="Lawnmowers" instance=ExtResource( 7 )]
 position = Vector2( 0, 24 )
 
-[node name="Node2D3" parent="Lawnmower" instance=ExtResource( 7 )]
+[node name="Lawnmower3" parent="Lawnmowers" instance=ExtResource( 7 )]
 position = Vector2( 0, 40 )
 
-[node name="Node2D4" parent="Lawnmower" instance=ExtResource( 7 )]
+[node name="Lawnmower4" parent="Lawnmowers" instance=ExtResource( 7 )]
 position = Vector2( 0, 56 )
 
-[node name="Node2D5" parent="Lawnmower" instance=ExtResource( 7 )]
+[node name="Lawnmower5" parent="Lawnmowers" instance=ExtResource( 7 )]
 position = Vector2( 0, 72 )
 
 [node name="Director" parent="." instance=ExtResource( 2 )]

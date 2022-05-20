@@ -24,4 +24,4 @@ var Sun: PackedScene = preload("res://GameObjects/Sun.tscn")
 
 var PlacementSystem: PackedScene = preload("res://Game/PlacementSystem.tscn")
 var Remover: PackedScene = preload("res://Game/Remover.tscn")
-#var SunSpawner: PackedScene = preload("res://GameObjects/SunSpawner.tscn")
+var SunSpawner: PackedScene = preload("res://GameObjects/SunSpawner.tscn")

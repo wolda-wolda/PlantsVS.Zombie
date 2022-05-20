@@ -3,7 +3,7 @@ extends Node2D
 
 
 # VARIABLES
-var sunUIPos: Vector2 = Global.GUI.get_node("VBoxEconomy/Balance").rect_global_position + Vector2(6, 6)
+var sunUIPos: Vector2 = Vector2(48, -16)
 
 # CONSTANTS
 const finalScale: Vector2 = Vector2(0.2, 0.2)
@@ -27,7 +27,7 @@ func _on_Button_button_down() -> void:
 # When the sun has been in the world for too long, it frees itself
 # thus despawning
 func _on_DespawnTimer_timeout() -> void:
-	queue_free()
+	$AnimationPlayer.play("Fade")
 
 # When the tween has been completed, add the sun to the balance
 # and free the sun instance
