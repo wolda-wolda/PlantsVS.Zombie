@@ -41,7 +41,7 @@ func finalWave() -> void:
 		else:
 			zombieCreator = ZombieCreator.new(genericZombie)
 		var zombieBlueprint: Node2D = zombieCreator.getZombie()
-		zombieBlueprint.global_position = Vector2(250, 16 * rng.randi_range(1, 5) - 8)
+		zombieBlueprint.global_position = Vector2(230, 16 * rng.randi_range(1, 5) - 8)
 		Global.main.get_node("Zombies").add_child(zombieBlueprint)
 		waveCredits -= zombieBlueprint.cost
 		waveCreditsSpent += zombieBlueprint.cost
@@ -65,7 +65,7 @@ func _on_GamePhase_timeout() -> void:
 		else:
 			zombieCreator = ZombieCreator.new(genericZombie)
 		var zombieBlueprint: Node2D = zombieCreator.getZombie()
-		zombieBlueprint.global_position = Vector2(250, 16 * rng.randi_range(1, 5) - 8)
+		zombieBlueprint.global_position = Vector2(230, 16 * rng.randi_range(1, 5) - 8)
 		Global.main.get_node("Zombies").add_child(zombieBlueprint)
 		credits -= zombieBlueprint.cost
 		creditsSpent += zombieBlueprint.cost
