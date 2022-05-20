@@ -13,8 +13,8 @@ var ZombieBlueprint: PackedScene = preload("res://Zombies/ZombieBlueprint.tscn")
 
 # PROJECTILE SCENES
 
-#var PeashooterProjectile: PackedScene = preload("res://Projectiles/Peashooter/PeashooterProjectile.tscn")
-#var SnowPeashooterProjectile: PackedScene = preload("res://Projectiles/SnowPeashooter/SnowPeashooterProjectile.tscn")
+var PeashooterProjectile: PackedScene = preload("res://Projectiles/Peashooter/PeashooterProjectile.tscn")
+var SnowPeashooterProjectile: PackedScene = preload("res://Projectiles/SnowPeashooter/SnowPeashooterProjectile.tscn")
 
 # GAMEOBJECT SCENES
 

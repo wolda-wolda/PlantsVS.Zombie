@@ -41,8 +41,8 @@ func finalWave() -> void:
 		else:
 			zombieCreator = ZombieCreator.new(genericZombie)
 		var zombieBlueprint: Node2D = zombieCreator.getZombie()
-		zombieBlueprint.position = Vector2(220, 16 * rng.randi_range(0, 4) + 8)
-		get_parent().get_node("Zombies").add_child(zombieBlueprint)
+		zombieBlueprint.global_position = Vector2(250, 16 * rng.randi_range(1, 5) - 8)
+		Global.main.get_node("Zombies").add_child(zombieBlueprint)
 		waveCredits -= zombieBlueprint.cost
 		waveCreditsSpent += zombieBlueprint.cost
 		$GamePhase.start(spawnInterval + rng.randi_range(-3, 3))
@@ -65,8 +65,8 @@ func _on_GamePhase_timeout() -> void:
 		else:
 			zombieCreator = ZombieCreator.new(genericZombie)
 		var zombieBlueprint: Node2D = zombieCreator.getZombie()
-		zombieBlueprint.position = Vector2(220, 16 * rng.randi_range(2, 6) + 8)
-		get_parent().get_node("Zombies").add_child(zombieBlueprint)
+		zombieBlueprint.global_position = Vector2(250, 16 * rng.randi_range(1, 5) - 8)
+		Global.main.get_node("Zombies").add_child(zombieBlueprint)
 		credits -= zombieBlueprint.cost
 		creditsSpent += zombieBlueprint.cost
 		$GamePhase.start(spawnInterval + rng.randi_range(-3, 3))

@@ -870,6 +870,7 @@ singletons=[ "res://addons/godot-git-plugin/git_api.gdnlib" ]
 
 [gui]
 
+theme/custom="res://Assets/Themes/MainTheme.tres"
 theme/custom_font="res://Assets/Fonts/PixelFont8.tres"
 
 [input]
