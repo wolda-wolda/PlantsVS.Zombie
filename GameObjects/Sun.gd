@@ -3,7 +3,7 @@ extends Node2D
 
 
 # VARIABLES
-var sunUIPos: Vector2 = Global.GUI.get_node("VBoxEconomy/Balance").rect_global_position + Vector2(6, 6)
+var sunUIPos: Vector2 = Vector2(48, -16)
 
 # CONSTANTS
 const finalScale: Vector2 = Vector2(0.2, 0.2)
