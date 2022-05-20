@@ -5,8 +5,6 @@ extends VBoxContainer
 # SIGNALS
 signal plant_selected(plant)
 
-
-
 # ENGINE METHODS
 
 # Creates the Shopitems and connects the needed signals
