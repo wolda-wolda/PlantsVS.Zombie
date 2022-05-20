@@ -876,6 +876,11 @@ Global="*res://Global.gd"
 Directories="*res://Directories/Directories.gd"
 Entities="*res://Entities.gd"
 
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="keep_height"
+
 [gdnative]
 
 singletons=[ "res://addons/godot-git-plugin/git_api.gdnlib" ]

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://Plants/Plant.gd" type="Script" id=1]
+[ext_resource path="res://Plants/SnowPeashooter/SnowPeashooter_Frames.tres" type="SpriteFrames" id=2]
+[ext_resource path="res://Plants/SnowPeashooter/SnowPeashooter.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Plants/SnowPeashooter/SnowPeashooter_1.png" type="Texture" id=4]
+
+[resource]
+script = ExtResource( 1 )
+name = "Snow Peashooter"
+hp = 100
+cost = 175
+cooldown = 6.0
+attackInterval = 1.5
+attackRange = 150.0
+animationSpeedScale = 1.0
+spriteFrames0 = ExtResource( 2 )
+texture = ExtResource( 4 )
+plantScript = ExtResource( 3 )
