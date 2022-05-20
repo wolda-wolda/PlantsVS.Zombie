@@ -27,7 +27,7 @@ func _on_Button_button_down() -> void:
 # When the sun has been in the world for too long, it frees itself
 # thus despawning
 func _on_DespawnTimer_timeout() -> void:
-	queue_free()
+	$AnimationPlayer.play("Fade")
 
 # When the tween has been completed, add the sun to the balance
 # and free the sun instance
