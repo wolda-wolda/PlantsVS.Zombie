@@ -7,7 +7,17 @@ extents = Vector2( 8, 8 )
 
 [node name="PlantBlueprint" type="Node2D"]
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+[node name="States" type="Node2D" parent="."]
+
+[node name="State0" type="AnimatedSprite" parent="States"]
+playing = true
+
+[node name="State1" type="AnimatedSprite" parent="States"]
+visible = false
+playing = true
+
+[node name="State2" type="AnimatedSprite" parent="States"]
+visible = false
 playing = true
 
 [node name="AttackTimer" type="Timer" parent="."]
