@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Effects/TextAnimation.gd" type="Script" id=1]
+
+[node name="TextAnimation" type="CenterContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 512.0
+margin_top = 294.0
+margin_right = 512.0
+margin_bottom = 306.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+align = 1
+valign = 1
+
+[connection signal="resized" from="Label" to="." method="_on_Label_resized"]
