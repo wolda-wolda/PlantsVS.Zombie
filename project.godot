@@ -599,6 +599,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Effects/OnBodyEffect.gd"
 }, {
+"base": "Node",
+"class": "OnFallEffect",
+"language": "GDScript",
+"path": "res://Effects/OnFallEffect.gd"
+}, {
 "base": "Resource",
 "class": "Plant",
 "language": "GDScript",
@@ -833,6 +838,7 @@ _global_script_class_icons={
 "JUnitXmlReport": "",
 "LocalTime": "",
 "OnBodyEffect": "",
+"OnFallEffect": "",
 "Plant": "",
 "PlantCreator": "",
 "RPC": "",
