@@ -876,12 +876,18 @@ Global="*res://Global.gd"
 Directories="*res://Directories/Directories.gd"
 Entities="*res://Entities.gd"
 
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="keep_height"
+
 [gdnative]
 
 singletons=[ "res://addons/godot-git-plugin/git_api.gdnlib" ]
 
 [gui]
 
+theme/custom="res://Assets/Themes/MainTheme.tres"
 theme/custom_font="res://Assets/Fonts/PixelFont8.tres"
 
 [input]
