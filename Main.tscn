@@ -108,3 +108,7 @@ waveCredits = 100
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="GUI" parent="UI" instance=ExtResource( 1 )]
+margin_left = 12.0
+margin_top = 4.0
+margin_right = 12.0
+margin_bottom = 4.0
