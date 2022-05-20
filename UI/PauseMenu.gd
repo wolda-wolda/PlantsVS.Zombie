@@ -10,10 +10,12 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		if visible:
 			_fade(Global.fade.OUT)
+			$AudioStreamPlayer.stop()
 		else:
 			show()
 			_fade(Global.fade.IN)
 			get_tree().paused = true
+			$AudioStreamPlayer.play(0.0)
 
 # METHODS
 
