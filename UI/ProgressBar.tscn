@@ -5,14 +5,14 @@
 [ext_resource path="res://UI/ProgressBar.gd" type="Script" id=3]
 
 [node name="TextureProgress" type="TextureProgress"]
-margin_right = 18.0
-margin_bottom = 5.0
+margin_right = 138.0
+margin_bottom = 22.0
 value = 50.0
 texture_under = ExtResource( 1 )
 texture_progress = ExtResource( 2 )
 nine_patch_stretch = true
 stretch_margin_left = 1
-stretch_margin_top = 1
+stretch_margin_top = 6
 stretch_margin_right = 1
-stretch_margin_bottom = 1
+stretch_margin_bottom = 6
 script = ExtResource( 3 )

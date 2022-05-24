@@ -44,7 +44,7 @@ margin_right = 70.0
 margin_bottom = 34.0
 
 [node name="Shovel" parent="." instance=ExtResource( 4 )]
-margin_left = -61.0
+margin_left = -60.0
 margin_top = 5.0
 margin_right = -5.0
 
@@ -53,7 +53,9 @@ visible = false
 mouse_filter = 2
 
 [node name="TextureProgress" parent="." instance=ExtResource( 7 )]
-margin_left = 891.0
-margin_top = 8.0
-margin_right = 949.0
-margin_bottom = 31.0
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -378.0
+margin_top = 9.0
+margin_right = -264.0
+margin_bottom = 28.0
