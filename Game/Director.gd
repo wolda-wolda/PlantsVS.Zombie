@@ -97,7 +97,7 @@ func _onZombieDeath(cost: int) -> void:
 	zombieDeathCredits += cost
 	
 	if zombieDeathCredits >= initialWaveCredits:
-		if zombieDeathCredits >= finalWaveCredits:
+		if zombieDeathCredits == finalWaveCredits:
 			var textAnimation = Entities.TextAnimation.instance()
 			textAnimation.text = "You win!"
 			Global.UI.add_child(textAnimation)
