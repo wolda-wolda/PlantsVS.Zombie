@@ -103,7 +103,7 @@ position = Vector2( 0, 72 )
 
 [node name="Director" parent="." instance=ExtResource( 2 )]
 credits = 100
-waveCredits = 100
+waveCredits = 150
 
 [node name="UI" type="CanvasLayer" parent="."]
 

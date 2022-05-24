@@ -30,7 +30,8 @@ var genericZombie: Zombie = load("res://Zombies/GenericZombie/GenericZombie_Obje
 
 # Loads the scripts of all the Zombies from a directory
 func _ready() -> void:
-	initialWaveCredits = waveCredits
+	
+	initialWaveCredits = credits
 	rng.randomize()
 	for x in Directories.getEntities(Directories.dirZombies):
 		zombies.push_back(load(x))
@@ -41,13 +42,18 @@ func _ready() -> void:
 # Starts the final wave
 # Spawns enemies
 func finalWave() -> void:
+	initialWaveCredits = waveCredits
+	progressBar.setMax(waveCredits)
 	while waveCredits > 0:
+		zombieDeathCredits = 0
+		progressBar.setValue(0)
 		var zombieCreator: ZombieCreator
 		if waveCreditsSpent > 50:
 			zombieCreator= ZombieCreator.new(zombies[rng.randi_range(0, zombies.size() - 1)])
 		else:
 			zombieCreator = ZombieCreator.new(genericZombie)
 		var zombieBlueprint: Node2D = zombieCreator.getZombie()
+		zombieBlueprint.connect("on_death", self, "_onZombieDeath", [], CONNECT_ONESHOT)
 		zombieBlueprint.global_position = Vector2(230, 16 * rng.randi_range(1, 5) - 8)
 		Global.main.get_node("Zombies").add_child(zombieBlueprint)
 		waveCredits -= zombieBlueprint.cost
