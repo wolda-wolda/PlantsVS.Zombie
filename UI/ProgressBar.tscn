@@ -7,7 +7,6 @@
 [node name="TextureProgress" type="TextureProgress"]
 margin_right = 138.0
 margin_bottom = 22.0
-value = 50.0
 texture_under = ExtResource( 1 )
 texture_progress = ExtResource( 2 )
 nine_patch_stretch = true

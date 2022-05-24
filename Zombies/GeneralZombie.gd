@@ -3,6 +3,10 @@ extends Node2D
 # Should be extended by every zombie's script
 
 
+# SIGNALS
+
+signal on_death(cost)
+
 # VARIABLES
 var maxHp: int
 var hp: int
@@ -46,6 +50,7 @@ func takeDamage(damage: int) -> void:
 		onBodyEffect.start()
 	hp -= damage
 	if hp < 1:
+		emit_signal("on_death", cost)
 		queue_free()
 
 # Slows the Zombie and adds a slow effect

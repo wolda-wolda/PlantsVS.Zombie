@@ -52,7 +52,7 @@ margin_right = -5.0
 visible = false
 mouse_filter = 2
 
-[node name="TextureProgress" parent="." instance=ExtResource( 7 )]
+[node name="ProgressBar" parent="." instance=ExtResource( 7 )]
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -378.0

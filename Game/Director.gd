@@ -9,10 +9,15 @@ extends Node2D
 export(int) var credits
 export(int) var waveCredits
 
+# ONREADY
+onready var progressBar: TextureProgress = Global.GUI.get_node("ProgressBar")
+
 # RANDOM NUMBER GENERATOR
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 
 # GAME VARIABLES
+var initialWaveCredits: int = 0
+var zombieDeathCredits: int = 0
 var spawnInterval = 7.0
 var creditsSpent: int = 0
 var waveCreditsSpent: int = 0
@@ -25,9 +30,11 @@ var genericZombie: Zombie = load("res://Zombies/GenericZombie/GenericZombie_Obje
 
 # Loads the scripts of all the Zombies from a directory
 func _ready() -> void:
+	initialWaveCredits = waveCredits
 	rng.randomize()
 	for x in Directories.getEntities(Directories.dirZombies):
 		zombies.push_back(load(x))
+	progressBar.setMax(credits)
 
 # METHODS
 
@@ -65,6 +72,7 @@ func _on_GamePhase_timeout() -> void:
 		else:
 			zombieCreator = ZombieCreator.new(genericZombie)
 		var zombieBlueprint: Node2D = zombieCreator.getZombie()
+		zombieBlueprint.connect("on_death", self, "_onZombieDeath", [], CONNECT_ONESHOT)
 		zombieBlueprint.global_position = Vector2(230, 16 * rng.randi_range(1, 5) - 8)
 		Global.main.get_node("Zombies").add_child(zombieBlueprint)
 		credits -= zombieBlueprint.cost
@@ -73,4 +81,9 @@ func _on_GamePhase_timeout() -> void:
 		zombieCreator.queue_free()
 	else:
 		$GamePhase.paused = true
+
+func _onZombieDeath(cost: int) -> void:
+	progressBar.setValue(progressBar.getValue() + cost)
+	zombieDeathCredits += cost
+	if zombieDeathCredits == initialWaveCredits:
 		finalWave()
