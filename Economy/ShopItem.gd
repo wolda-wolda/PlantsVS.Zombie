@@ -61,7 +61,6 @@ func _on_PlantCooldown_timeout() -> void:
 # Restart the cooldown when a plant has been placed so that it can't
 # be instantly rebought
 func _on_plant_placed() -> void:
-	print(plant.cost)
 	Global.balance -= plant.cost
 	$PlantCooldown.start(plant.cooldown)
 

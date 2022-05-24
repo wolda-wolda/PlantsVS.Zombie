@@ -10,12 +10,15 @@ export(int) var credits
 export(int) var waveCredits
 
 # ONREADY
+
 onready var progressBar: TextureProgress = Global.GUI.get_node("ProgressBar")
 
 # RANDOM NUMBER GENERATOR
+
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 
 # GAME VARIABLES
+
 var initialWaveCredits: int = 0
 var finalWaveCredits: int = 0
 var zombieDeathCredits: int = 0
@@ -25,6 +28,7 @@ var waveCreditsSpent: int = 0
 var zombies: Array = []
 
 # SCENES
+
 var genericZombie: Zombie = load("res://Zombies/GenericZombie/GenericZombie_Object.tres")
 
 # ENGINE METHODS
@@ -85,6 +89,9 @@ func _on_GamePhase_timeout() -> void:
 	else:
 		$GamePhase.paused = true
 
+# Gets executed when a zombie dies
+# Used for updating the progress bar
+# and displaying animations
 func _onZombieDeath(cost: int) -> void:
 	progressBar.setValue(progressBar.getValue() + cost)
 	zombieDeathCredits += cost
