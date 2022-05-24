@@ -3,9 +3,11 @@ extends MarginContainer
 
 
 # SIGNALS
+
 signal buy_plant(plant)
 
 # VARIABLES
+
 var plant: Plant
 var plantInfo: MarginContainer
 
