@@ -49,7 +49,8 @@ func _showTooltip() -> void:
 func _on_Button_button_down() -> void:
 	if $PlantCooldown.is_stopped():
 		emit_signal("buy_plant", plant)
-		Global.main.get_node("PlacementSystem").connect("plant_placed", self, "_on_plant_placed", [], CONNECT_ONESHOT)
+		if !Global.main.get_node("PlacementSystem").is_connected("plant_placed", self, "_on_plant_placed"):
+			Global.main.get_node("PlacementSystem").connect("plant_placed", self, "_on_plant_placed", [], CONNECT_ONESHOT)
 
 # Stop the timer when it timed out so it doesn't restart
 func _on_PlantCooldown_timeout() -> void:
@@ -58,6 +59,8 @@ func _on_PlantCooldown_timeout() -> void:
 # Restart the cooldown when a plant has been placed so that it can't
 # be instantly rebought
 func _on_plant_placed() -> void:
+	print(plant.cost)
+	Global.balance -= plant.cost
 	$PlantCooldown.start(plant.cooldown)
 
 # Toggle the availability of the plant by checking the balance

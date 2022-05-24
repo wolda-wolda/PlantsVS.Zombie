@@ -7,7 +7,8 @@ signal balance_changed
 # NODEPATHS
 
 onready var main: Node = get_node("/root/Main")
-onready var GUI: Control = main.get_node("UI/GUI")
+onready var UI: CanvasLayer = main.get_node("UI")
+onready var GUI: Control = UI.get_node("GUI")
 onready var progressBar: TextureProgress = GUI.get_node("ProgressBar")
 onready var balanceUI: MarginContainer = GUI.get_node("VBoxEconomy/Balance")
 onready var Blur: ColorRect = GUI.get_node("Blur")

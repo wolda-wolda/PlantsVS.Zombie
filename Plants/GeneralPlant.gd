@@ -14,6 +14,7 @@ var cost: int
 
 # Deactivate the collision and set up the raycast for detecting enemies
 func _ready() -> void:
+	$AttackTimer.connect("timeout", self, "_on_AttackTimer_timeout")
 	hp = maxHP
 	get_node("HurtBox/CollisionShape2D").disabled = true
 	$EnemyDetection.cast_to = Vector2(attackRange, 0)
@@ -23,7 +24,6 @@ func _ready() -> void:
 # Reenable the collision so the plant can be attacked
 # and detected by the placement system
 func initialize() -> void:
-	$AttackTimer.connect("timeout", self, "_on_AttackTimer_timeout")
 	get_node("HurtBox/CollisionShape2D").disabled = false
 	$AttackTimer.autostart = true
 	$AttackTimer.start(attackInterval)

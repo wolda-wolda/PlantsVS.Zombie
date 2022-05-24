@@ -25,22 +25,21 @@ func _input(_event: InputEvent) -> void:
 		node.modulate = Color(1, 0, 0)
 	_setNodePosition()
 	if Input.is_action_just_pressed("placementSystem_cancel"):
+		node.queue_free()
 		queue_free()
 	elif Input.is_action_just_pressed("placementSystem_place") and inBounds\
 	and !rayCast.is_colliding() and mode == Global.mode.PLACE:
-		Global.balance -= node.cost
 		set_process(false)
 		node.modulate = Color(1, 1, 1)
 		node.initialize()
 		rayCast.queue_free()
-		remove_child(node)
-		get_node("/root/Main/Plants").add_child(node)
 		emit_signal("plant_placed")
 		queue_free()
 	elif Input.is_action_just_pressed("placementSystem_place") and rayCast.is_colliding() and mode == Global.mode.REMOVE:
 		var collider: Area2D = rayCast.get_collider()
 		var plant: Node2D = collider.get_parent()
 		plant.queue_free()
+		node.queue_free()
 		queue_free()
 
 # METHODS
@@ -56,7 +55,7 @@ func start(placingMode: int, newNode: Node2D) -> void:
 	if mode == Global.mode.REMOVE:
 		rayCast.set_collision_mask_bit(3, false)
 	_setNodePosition()
-	add_child(node)
+	get_node("/root/Main/Plants").add_child(node)
 
 # Create a raycast which is set up for recognizing
 # collision with other plants	

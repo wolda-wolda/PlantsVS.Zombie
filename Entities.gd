@@ -5,6 +5,7 @@ extends Node
 
 var ShopItem: PackedScene = preload("res://Economy/ShopItem.tscn")
 var PlantInfo: PackedScene = preload("res://UI/PlantInfo.tscn")
+var TextAnimation: PackedScene = preload("res://Effects/TextAnimation.tscn")
 
 # BLUEPRINT SCENES
 

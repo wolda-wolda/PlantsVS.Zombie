@@ -17,6 +17,7 @@ var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 
 # GAME VARIABLES
 var initialWaveCredits: int = 0
+var finalWaveCredits: int = 0
 var zombieDeathCredits: int = 0
 var spawnInterval = 7.0
 var creditsSpent: int = 0
@@ -30,23 +31,19 @@ var genericZombie: Zombie = load("res://Zombies/GenericZombie/GenericZombie_Obje
 
 # Loads the scripts of all the Zombies from a directory
 func _ready() -> void:
-	
 	initialWaveCredits = credits
+	finalWaveCredits = credits + waveCredits
 	rng.randomize()
 	for x in Directories.getEntities(Directories.dirZombies):
 		zombies.push_back(load(x))
-	progressBar.setMax(credits)
+	progressBar.setMax(credits + waveCredits)
 
 # METHODS
 
 # Starts the final wave
 # Spawns enemies
 func finalWave() -> void:
-	initialWaveCredits = waveCredits
-	progressBar.setMax(waveCredits)
 	while waveCredits > 0:
-		zombieDeathCredits = 0
-		progressBar.setValue(0)
 		var zombieCreator: ZombieCreator
 		if waveCreditsSpent > 50:
 			zombieCreator= ZombieCreator.new(zombies[rng.randi_range(0, zombies.size() - 1)])
@@ -91,5 +88,11 @@ func _on_GamePhase_timeout() -> void:
 func _onZombieDeath(cost: int) -> void:
 	progressBar.setValue(progressBar.getValue() + cost)
 	zombieDeathCredits += cost
-	if zombieDeathCredits == initialWaveCredits:
+	
+	if zombieDeathCredits >= initialWaveCredits:
+		if zombieDeathCredits >= finalWaveCredits:
+			var textAnimation = Entities.TextAnimation.instance()
+			textAnimation.text = "You win!"
+			Global.UI.add_child(textAnimation)
+			return
 		finalWave()
