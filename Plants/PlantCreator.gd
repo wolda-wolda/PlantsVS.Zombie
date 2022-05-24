@@ -5,6 +5,7 @@ class_name PlantCreator
 
 
 # VARIABLES
+
 var createdPlant: Node2D
 
 # ENGINE METHODS
