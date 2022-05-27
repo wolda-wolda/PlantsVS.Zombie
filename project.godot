@@ -868,7 +868,7 @@ _global_script_class_icons={
 
 config/name="Plant Vs. Zombie"
 run/main_scene="res://Main.tscn"
-config/icon="res://icon.png"
+config/icon="res://Assets/Plants/Peashooter/Peashooter_2.png"
 
 [autoload]
 
@@ -886,6 +886,10 @@ window/stretch/aspect="keep_height"
 [gdnative]
 
 singletons=[ "res://addons/godot-git-plugin/git_api.gdnlib" ]
+
+[global]
+
+icon=false
 
 [gui]
 
