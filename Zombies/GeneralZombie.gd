@@ -45,9 +45,10 @@ func takeDamage(damage: int) -> void:
 		add_child(onFallEffect)
 		onFallEffect.start()
 	if $SlowTimer.is_stopped():
-		var onBodyEffect: OnBodyEffect = OnBodyEffect.new(self, modulate, Color(1.2, 1.2, 1.2), 0.1, 0.1, "setBodyModulate")
-		add_child(onBodyEffect)
-		onBodyEffect.start()
+		pass
+	var onBodyEffect: OnBodyEffect = OnBodyEffect.new(self, modulate, Color(1.2, 1.2, 1.2), 0.1, 0.1, "setBodyModulate")
+	add_child(onBodyEffect)
+	onBodyEffect.start()
 	hp -= damage
 	if hp < 1:
 		emit_signal("on_death", cost)
