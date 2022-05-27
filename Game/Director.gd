@@ -69,7 +69,7 @@ func finalWave() -> void:
 # Starts the timer with a random value for spawning enemies
 func _on_PregamePhase_timeout() -> void:
 	progressBar.show()
-	$GamePhase.start(0)
+	$GamePhase.start(0.1)
 
 # Spawns a new enemy
 # Starts the final wave when credits run out
