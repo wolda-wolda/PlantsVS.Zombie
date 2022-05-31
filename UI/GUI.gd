@@ -8,6 +8,8 @@ extends Control
 # If a child has a specific method for overriding scaling behavior
 # that one is used, otherwise the node is scaled normally
 func _ready() -> void:
+	hideAllObjects()
+	$MainMenu.show()
 	for x in get_children():
 		if x.has_method("setScale"):
 			x.setScale(Global.UI_SCALE)
@@ -21,7 +23,6 @@ func hideAllObjects() -> void:
 	for x in get_children():
 		$VBoxEconomy.hide()
 		$Shovel.hide()
-		$PauseMenu.hide()
 		$ProgressBar.hide()
 		$MainMenu.hide()
 
@@ -30,6 +31,5 @@ func showAllObjects() -> void:
 	for x in get_children():
 		$VBoxEconomy.show()
 		$Shovel.show()
-		$PauseMenu.show()
 		$ProgressBar.show()
 		$MainMenu.show()

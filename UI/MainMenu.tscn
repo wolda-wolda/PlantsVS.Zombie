@@ -75,6 +75,5 @@ text = "Exit"
 icon = ExtResource( 3 )
 
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_Play_pressed"]
-[connection signal="pressed" from="VBoxContainer/Play" to="VBoxContainer/Play" method="_on_Play_pressed"]
 [connection signal="pressed" from="VBoxContainer/SinglePlayer" to="." method="_on_SinglePlayer_pressed"]
 [connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_Exit_pressed"]
