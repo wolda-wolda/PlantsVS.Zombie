@@ -17,10 +17,11 @@ extends Node2D
 # ENGINE METHODS
 
 func _ready() -> void:
-	var mainLevel: Node2D = Entities.MainLevel.instance()
-	mainLevel.name = "MainLevel"
-	add_child(mainLevel)
+	var homeLevel: Node2D = Entities.HomeLevel.instance()
+	homeLevel.name = "HomeLevel"
+	add_child(homeLevel)
 	Global.GUI.get_node("VBoxEconomy/Shop").connect("plant_selected", self, "_onPlantSelected")
+	Global.GUI.visible = false
 
 # METHODS
 

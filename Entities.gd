@@ -4,6 +4,7 @@ extends Node
 # LEVELS
 
 var MainLevel: PackedScene = preload("res://Levels/MainLevel.tscn")
+var HomeLevel: PackedScene = preload("res://Levels/HomeLevel.tscn")
 
 # UI SCENES
 
