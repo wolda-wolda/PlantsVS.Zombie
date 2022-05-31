@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/UI/PlayButton.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Themes/MainTheme.tres" type="Theme" id=2]
 [ext_resource path="res://Assets/UI/ExitButton.png" type="Texture" id=3]
 [ext_resource path="res://UI/MainMenu.gd" type="Script" id=4]
+[ext_resource path="res://Assets/UI/MultiplayerIcon.png" type="Texture" id=5]
+[ext_resource path="res://Assets/UI/SingleplayerIcon.png" type="Texture" id=6]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Button
@@ -49,20 +51,20 @@ script = SubResource( 1 )
 [node name="SinglePlayer" type="Button" parent="VBoxContainer"]
 visible = false
 margin_top = 26.0
-margin_right = 41.0
+margin_right = 73.0
 margin_bottom = 48.0
 theme = ExtResource( 2 )
 text = "Singleplayer"
-icon = ExtResource( 1 )
+icon = ExtResource( 6 )
 
 [node name="MultiPlayer" type="Button" parent="VBoxContainer"]
 visible = false
-margin_top = 52.0
-margin_right = 41.0
-margin_bottom = 74.0
+margin_top = 26.0
+margin_right = 67.0
+margin_bottom = 48.0
 theme = ExtResource( 2 )
 text = "Multiplayer"
-icon = ExtResource( 1 )
+icon = ExtResource( 5 )
 
 [node name="Exit" type="Button" parent="VBoxContainer"]
 margin_top = 26.0
@@ -74,4 +76,5 @@ icon = ExtResource( 3 )
 
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="VBoxContainer/Play" to="VBoxContainer/Play" method="_on_Play_pressed"]
+[connection signal="pressed" from="VBoxContainer/SinglePlayer" to="." method="_on_SinglePlayer_pressed"]
 [connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_Exit_pressed"]

@@ -13,4 +13,4 @@ func _on_Exit_pressed():
 
 
 func _on_SinglePlayer_pressed():
-	pass # Replace with function body.
+	Global.main.add_child()
