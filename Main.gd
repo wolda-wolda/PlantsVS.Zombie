@@ -21,7 +21,8 @@ func _ready() -> void:
 	homeLevel.name = "HomeLevel"
 	add_child(homeLevel)
 	Global.GUI.get_node("VBoxEconomy/Shop").connect("plant_selected", self, "_onPlantSelected")
-	Global.GUI.visible = false
+	#Global.GUI.hideAllObjects()
+	Global.GUI.setBlur(2.8)
 
 # METHODS
 

@@ -13,3 +13,27 @@ func _ready() -> void:
 			x.setScale(Global.UI_SCALE)
 		else:
 			x.rect_scale = Global.UI_SCALE
+
+# METHODS
+
+# Hides all UI Objects apart from Effects like blur
+func hideAllObjects() -> void:
+	for x in get_children():
+		$VBoxEconomy.hide()
+		$Shovel.hide()
+		$PauseMenu.hide()
+		$ProgressBar.hide()
+		$MainMenu.hide()
+
+# Shows all UI Objects apart from Effects like blur
+func showAllObjects() -> void:
+	for x in get_children():
+		$VBoxEconomy.show()
+		$Shovel.show()
+		$PauseMenu.show()
+		$ProgressBar.show()
+		$MainMenu.show()
+
+# Sets the Background Blur
+func setBlur(value: float) -> void:
+	$Blur.set("shader_param/amount", value)

@@ -1,11 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Shaders/blur.shader" type="Shader" id=1]
 [ext_resource path="res://GameObjects/Lawnmower.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/Environment/Grass.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Environment/Fence.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Environment/Sky.png" type="Texture" id=5]
-[ext_resource path="res://Levels/HomeLevel.gd" type="Script" id=6]
 
 [sub_resource type="TileSet" id=1]
 0/name = "Grass.png 0"
@@ -65,12 +63,7 @@
 2/shapes = [  ]
 2/z_index = 0
 
-[sub_resource type="ShaderMaterial" id=2]
-shader = ExtResource( 1 )
-shader_param/amount = null
-
 [node name="HomeLevel" type="Node2D"]
-script = ExtResource( 6 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 1 )
@@ -103,16 +96,3 @@ position = Vector2( 0, 56 )
 
 [node name="Lawnmower5" parent="Lawnmowers" instance=ExtResource( 2 )]
 position = Vector2( 0, 72 )
-
-[node name="Blur" type="ColorRect" parent="."]
-material = SubResource( 2 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -4762.0
-margin_top = -5300.0
-margin_right = 5238.0
-margin_bottom = 4700.0
-grow_horizontal = 2
-grow_vertical = 2
-rect_min_size = Vector2( 10000, 10000 )
-mouse_filter = 2
