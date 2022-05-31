@@ -12,4 +12,6 @@ func _on_Exit_pressed():
 	get_tree().quit()
 
 func _on_SinglePlayer_pressed():
-	Global.main.add_child()
+	var mainlevel: Node2D = Entities.Mainlevel.intance()
+	mainlevel.name = "MainLevel"
+	Global.main.add_child(mainlevel)
