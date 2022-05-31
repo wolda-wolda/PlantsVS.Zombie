@@ -11,7 +11,7 @@
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 6 )
-shader_param/amount = null
+shader_param/amount = 3.0
 
 [node name="GUI" type="Control"]
 anchor_right = 1.0
@@ -62,6 +62,7 @@ margin_right = -264.0
 margin_bottom = 28.0
 
 [node name="MainMenu" parent="." instance=ExtResource( 9 )]
+visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 464.5

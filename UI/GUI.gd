@@ -33,7 +33,3 @@ func showAllObjects() -> void:
 		$PauseMenu.show()
 		$ProgressBar.show()
 		$MainMenu.show()
-
-# Sets the Background Blur
-func setBlur(value: float) -> void:
-	$Blur.set("shader_param/amount", value)
