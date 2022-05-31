@@ -14,3 +14,6 @@ func _on_SinglePlayer_pressed():
 	var mainlevel: Node2D = Entities.MainLevel.instance()
 	mainlevel.name = "MainLevel"
 	Global.main.add_child(mainlevel)
+	queue_free()
+	Global.GUI.setBlur(0.0)
+	
