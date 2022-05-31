@@ -7,6 +7,5 @@
 script = ExtResource( 6 )
 
 [node name="UI" type="CanvasLayer" parent="."]
-layer = 128
 
 [node name="GUI" parent="UI" instance=ExtResource( 1 )]
