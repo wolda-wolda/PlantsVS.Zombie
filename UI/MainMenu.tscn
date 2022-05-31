@@ -14,14 +14,32 @@ margin_top = 336.0
 margin_right = 660.0
 margin_bottom = 384.0
 
-[node name="Button" type="Button" parent="VBoxContainer"]
+[node name="Play" type="Button" parent="VBoxContainer"]
 margin_right = 41.0
 margin_bottom = 22.0
 theme = ExtResource( 2 )
 text = "Play"
 icon = ExtResource( 1 )
 
-[node name="Button2" type="Button" parent="VBoxContainer"]
+[node name="SinglePlayer" type="Button" parent="VBoxContainer"]
+visible = false
+margin_top = 26.0
+margin_right = 41.0
+margin_bottom = 48.0
+theme = ExtResource( 2 )
+text = "Play"
+icon = ExtResource( 1 )
+
+[node name="MultiPlayer" type="Button" parent="VBoxContainer"]
+visible = false
+margin_top = 52.0
+margin_right = 41.0
+margin_bottom = 74.0
+theme = ExtResource( 2 )
+text = "Play"
+icon = ExtResource( 1 )
+
+[node name="Exit" type="Button" parent="VBoxContainer"]
 margin_top = 26.0
 margin_right = 41.0
 margin_bottom = 48.0
