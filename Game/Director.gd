@@ -12,6 +12,7 @@ export(int) var waveCredits
 # ONREADY
 
 onready var progressBar: TextureProgress = Global.GUI.get_node("ProgressBar")
+onready var zombiePath: YSort = Global.main.get_node("MainLevel/Zombies")
 
 # RANDOM NUMBER GENERATOR
 
@@ -57,7 +58,7 @@ func finalWave() -> void:
 		var zombieBlueprint: Node2D = zombieCreator.getZombie()
 		zombieBlueprint.connect("on_death", self, "_onZombieDeath", [], CONNECT_ONESHOT)
 		zombieBlueprint.global_position = Vector2(230, 16 * rng.randi_range(1, 5) - 8)
-		Global.main.get_node("Zombies").add_child(zombieBlueprint)
+		zombiePath.add_child(zombieBlueprint)
 		waveCredits -= zombieBlueprint.cost
 		waveCreditsSpent += zombieBlueprint.cost
 		$GamePhase.start(spawnInterval + rng.randi_range(-3, 3))
@@ -83,7 +84,7 @@ func _on_GamePhase_timeout() -> void:
 		var zombieBlueprint: Node2D = zombieCreator.getZombie()
 		zombieBlueprint.connect("on_death", self, "_onZombieDeath", [], CONNECT_ONESHOT)
 		zombieBlueprint.global_position = Vector2(230, 16 * rng.randi_range(1, 5) - 8)
-		Global.main.get_node("Zombies").add_child(zombieBlueprint)
+		zombiePath.add_child(zombieBlueprint)
 		credits -= zombieBlueprint.cost
 		creditsSpent += zombieBlueprint.cost
 		$GamePhase.start(spawnInterval + rng.randi_range(-3, 3))

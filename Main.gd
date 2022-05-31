@@ -17,6 +17,9 @@ extends Node2D
 # ENGINE METHODS
 
 func _ready() -> void:
+	var mainLevel: Node2D = Entities.MainLevel.instance()
+	mainLevel.name = "MainLevel"
+	add_child(mainLevel)
 	Global.GUI.get_node("VBoxEconomy/Shop").connect("plant_selected", self, "_onPlantSelected")
 
 # METHODS

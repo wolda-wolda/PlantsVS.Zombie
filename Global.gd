@@ -6,7 +6,7 @@ signal balance_changed
 
 # NODEPATHS
 
-onready var main: Node = get_node("/root/Main")
+onready var main: Node2D = get_node("/root/Main")
 onready var UI: CanvasLayer = main.get_node("UI")
 onready var GUI: Control = UI.get_node("GUI")
 onready var progressBar: TextureProgress = GUI.get_node("ProgressBar")

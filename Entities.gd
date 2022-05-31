@@ -1,6 +1,10 @@
 extends Node
 
 
+# LEVELS
+
+var MainLevel: PackedScene = preload("res://Levels/MainLevel.tscn")
+
 # UI SCENES
 
 var ShopItem: PackedScene = preload("res://Economy/ShopItem.tscn")
