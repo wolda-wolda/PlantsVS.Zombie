@@ -1,7 +1,6 @@
 extends CenterContainer
 
 
-
 func _on_Play_pressed():
 	$VBoxContainer/Play.visible = false
 	$VBoxContainer/MultiPlayer.visible = true
