@@ -33,3 +33,6 @@ func showAllObjects() -> void:
 		$Shovel.show()
 		$ProgressBar.show()
 		$MainMenu.show()
+
+func setBlur(amount: float) -> void:
+	$Blur.set("shader_param/amount", amount)
