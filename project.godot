@@ -868,7 +868,7 @@ _global_script_class_icons={
 
 config/name="Plant Vs. Zombie"
 run/main_scene="res://Main.tscn"
-config/icon="res://Assets/Plants/Peashooter/Peashooter_2.png"
+config/icon="res://Assets/GameIcon.png"
 
 [autoload]
 
