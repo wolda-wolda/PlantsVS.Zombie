@@ -8,6 +8,8 @@ var HomeLevel: PackedScene = preload("res://Levels/HomeLevel.tscn")
 
 # UI SCENES
 
+var MainMenu: PackedScene = preload("res://UI/MainMenu.tscn")
+var PauseMenu: PackedScene = preload("res://UI/PauseMenu.tscn")
 var ShopItem: PackedScene = preload("res://Economy/ShopItem.tscn")
 var PlantInfo: PackedScene = preload("res://UI/PlantInfo.tscn")
 var TextAnimation: PackedScene = preload("res://Effects/TextAnimation.tscn")

@@ -10,12 +10,10 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		if visible:
 			_fade(Global.fade.OUT)
-			$AudioStreamPlayer.stop()
 		else:
 			show()
 			_fade(Global.fade.IN)
 			get_tree().paused = true
-			$AudioStreamPlayer.play(0.0)
 
 # METHODS
 
@@ -33,11 +31,6 @@ func _fade(mode: int) -> void:
 		$FadeTween.start()
 		$BlurTween.interpolate_property(Global.Blur.material, "shader_param/amount", Global.UI_BLUR_AMOUNT, 0.0, Global.UI_ANIMATION_DURATION, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
 		$BlurTween.start()
-
-# Sets the scale of the pause menu and realigns it to the center
-func setScale(scale: Vector2) -> void:
-	rect_scale = scale
-	rect_position -= rect_size / 2
 
 # SIGNAL METHODS
 

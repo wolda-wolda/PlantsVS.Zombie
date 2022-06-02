@@ -1,5 +1,5 @@
 extends TextureProgress
-# Progress bad to display the match progress
+# Progress bar to display the match progress
 
 
 # VARIABLES

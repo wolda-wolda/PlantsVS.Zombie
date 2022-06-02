@@ -17,12 +17,35 @@ extends Node2D
 # ENGINE METHODS
 
 func _ready() -> void:
-	var homeLevel: Node2D = Entities.HomeLevel.instance()
-	homeLevel.name = "HomeLevel"
-	add_child(homeLevel)
+	addHomeLevel()
 	Global.GUI.get_node("VBoxEconomy/Shop").connect("plant_selected", self, "_onPlantSelected")
 
 # METHODS
+
+# Resets all values
+# For starting a new game
+func reset() -> void:
+	Global.balance = 100
+	Global.GUI.resetGameUI()
+	addHomeLevel()
+
+# Adds a background scene
+# Used when player is in main menu
+func addHomeLevel() -> void:
+	if has_node("MainLevel"):
+		get_node("MainLevel").queue_free()
+	var homeLevel: Node2D = Entities.HomeLevel.instance()
+	homeLevel.name = "HomeLevel"
+	add_child(homeLevel)
+
+# Adds the main level
+# Used for starting a new game
+func addMainLevel() -> void:
+	if has_node("HomeLevel"):
+		get_node("HomeLevel").queue_free()
+	var mainLevel: Node2D = Entities.MainLevel.instance()
+	mainLevel.name = "MainLevel"
+	add_child(mainLevel)
 
 # Add and start a placement system if there isn't already one
 func addPlacementSystem(mode: int, plant: Node2D) -> void:

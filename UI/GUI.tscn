@@ -43,23 +43,14 @@ margin_top = 34.0
 margin_right = 70.0
 margin_bottom = 34.0
 
+[node name="MainMenu" parent="." instance=ExtResource( 9 )]
+
 [node name="Shovel" parent="." instance=ExtResource( 4 )]
-margin_left = -60.0
 margin_top = 5.0
 margin_right = -5.0
 
 [node name="ProgressBar" parent="." instance=ExtResource( 7 )]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -378.0
-margin_top = 10.0
-margin_right = -264.0
-margin_bottom = 28.0
-
-[node name="MainMenu" parent="." instance=ExtResource( 9 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 464.5
-margin_top = 262.5
-margin_right = 559.5
-margin_bottom = 337.5
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -128.0
+margin_right = 128.0

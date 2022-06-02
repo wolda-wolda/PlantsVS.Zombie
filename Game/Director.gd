@@ -65,6 +65,10 @@ func finalWave() -> void:
 		yield(get_tree().create_timer(0.5), "timeout")
 		zombieCreator.queue_free()
 
+# Ends the game
+func _endGame() -> void:
+	Global.main.reset()
+
 # SIGNAL METHODS
 
 # Starts the timer with a random value for spawning enemies
@@ -100,9 +104,13 @@ func _onZombieDeath(cost: int) -> void:
 	zombieDeathCredits += cost
 	
 	if zombieDeathCredits >= initialWaveCredits:
-		if zombieDeathCredits == finalWaveCredits:
+		if zombieDeathCredits >= finalWaveCredits:
 			var textAnimation = Entities.TextAnimation.instance()
 			textAnimation.text = "You win!"
 			Global.UI.add_child(textAnimation)
+			
+			yield(get_tree().create_timer(2.5), "timeout")
+			textAnimation.queue_free()
+			_endGame()
 			return
 		finalWave()
