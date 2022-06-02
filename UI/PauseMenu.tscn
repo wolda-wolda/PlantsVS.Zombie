@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://UI/PauseMenu.gd" type="Script" id=1]
 [ext_resource path="res://UI/Frame.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Assets/UI/Plants vs. Zombies (Main Theme).mp3" type="AudioStream" id=3]
 
 [node name="PauseMenu" type="MarginContainer"]
 pause_mode = 2
@@ -78,9 +77,6 @@ pause_mode = 2
 
 [node name="FadeTween" type="Tween" parent="."]
 pause_mode = 2
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 3 )
 
 [connection signal="pressed" from="FrameVBox/Main/VBoxContainer/ButtonResume" to="." method="_on_ButtonResume_pressed"]
 [connection signal="pressed" from="FrameVBox/Main/VBoxContainer/ButtonMainMenu" to="." method="_on_ButtonMainMenu_pressed"]
