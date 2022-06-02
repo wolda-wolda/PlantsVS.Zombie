@@ -47,3 +47,7 @@ func _on_ButtonQuit_pressed() -> void:
 func _on_FadeTween_tween_completed(object: Object, key: NodePath) -> void:
 	get_tree().paused = false
 	hide()
+
+# Returns the player to the main menu
+func _on_ButtonMainMenu_pressed():
+	Global.main.reset()
