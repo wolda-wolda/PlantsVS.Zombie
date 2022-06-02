@@ -23,7 +23,9 @@ rect_pivot_offset = Vector2( 24, 24 )
 [node name="Play" type="Button" parent="VBoxContainer"]
 margin_right = 48.0
 margin_bottom = 22.0
+focus_mode = 0
 theme = ExtResource( 2 )
+enabled_focus_mode = 0
 text = "Play"
 icon = ExtResource( 1 )
 
@@ -32,7 +34,9 @@ visible = false
 margin_top = 26.0
 margin_right = 73.0
 margin_bottom = 48.0
+focus_mode = 0
 theme = ExtResource( 2 )
+enabled_focus_mode = 0
 text = "Singleplayer"
 icon = ExtResource( 6 )
 
@@ -41,7 +45,9 @@ visible = false
 margin_top = 52.0
 margin_right = 73.0
 margin_bottom = 74.0
+focus_mode = 0
 theme = ExtResource( 2 )
+enabled_focus_mode = 0
 text = "Multiplayer"
 icon = ExtResource( 5 )
 
@@ -49,7 +55,9 @@ icon = ExtResource( 5 )
 margin_top = 26.0
 margin_right = 48.0
 margin_bottom = 48.0
+focus_mode = 0
 theme = ExtResource( 2 )
+enabled_focus_mode = 0
 text = "Exit"
 icon = ExtResource( 3 )
 
