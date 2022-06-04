@@ -6,6 +6,7 @@ extends Node2D
 # SIGNALS
 
 signal on_death(cost)
+signal cross
 
 # VARIABLES
 var maxHp: int
@@ -33,6 +34,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	var speed: float = -delta * currentMovementSpeed
 	position += Vector2(speed, 0)
+	if position.x <= 0:
+		emit_signal("cross")
 
 # METHODS
 

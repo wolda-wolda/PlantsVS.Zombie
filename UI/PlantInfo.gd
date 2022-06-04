@@ -12,9 +12,9 @@ func setValues(plant: Plant) -> void:
 	var attackInterval: int = plant.attackInterval
 	var attackRange: int = plant.attackRange
 	$VBoxContainer/MainFrame/MainFrameLabel.bbcode_text = "[center][color=green]HP[/color] " + str(hp)\
-	+ "\n[color=yellow]Cooldown[/color] " + str(plant.cooldown)
+	+ "\n[color=yellow]Cooldown[/color] " + str(plant.cooldown) + " Seconds"
 	if attackInterval != 0:
-		$VBoxContainer/MainFrame/MainFrameLabel.bbcode_text += " Seconds\n" + "[color=red]Attack Interval[/color] " +\
+		$VBoxContainer/MainFrame/MainFrameLabel.bbcode_text += "\n" + "[color=red]Attack Interval[/color] " +\
 		str(plant.attackInterval) + " Seconds\n"
 	if attackRange != 0:
 		$VBoxContainer/MainFrame/MainFrameLabel.bbcode_text += "[color=red]Attack Range[/color] " +\

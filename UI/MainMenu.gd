@@ -15,16 +15,10 @@ func setScale(scale: Vector2) -> void:
 func _on_Exit_pressed():
 	get_tree().quit()
 
-# Hides old buttons and shows new ones
-func _on_Play_pressed():
-	$VBoxContainer/Play.visible = false
-	$VBoxContainer/MultiPlayer.visible = true
-	$VBoxContainer/SinglePlayer.visible = true
-
 # Handles the process of starting a new game
 # when this button has been clicked
 # and adjusts relevant UI elements
-func _on_SinglePlayer_pressed():
+func _on_Play_pressed():
 	Global.main.addMainLevel()
 	
 	var pauseMenu: MarginContainer = Entities.PauseMenu.instance()

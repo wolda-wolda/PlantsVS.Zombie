@@ -55,7 +55,7 @@ func start(placingMode: int, newNode: Node2D) -> void:
 	if mode == Global.mode.REMOVE:
 		rayCast.set_collision_mask_bit(3, false)
 	_setNodePosition()
-	Global.main.get_node("MainLevel").add_child(node)
+	Global.main.get_node("MainLevel/Plants").add_child(node)
 
 # Create a raycast which is set up for recognizing
 # collision with other plants	

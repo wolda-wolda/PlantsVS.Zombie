@@ -28,6 +28,8 @@ var creditsSpent: int = 0
 var waveCreditsSpent: int = 0
 var zombies: Array = []
 
+var gameLost: bool = false
+
 # SCENES
 
 var genericZombie: Zombie = load("res://Zombies/GenericZombie/GenericZombie_Object.tres")
@@ -57,6 +59,7 @@ func finalWave() -> void:
 			zombieCreator = ZombieCreator.new(genericZombie)
 		var zombieBlueprint: Node2D = zombieCreator.getZombie()
 		zombieBlueprint.connect("on_death", self, "_onZombieDeath", [], CONNECT_ONESHOT)
+		zombieBlueprint.connect("on_cross", self, "_onZombieCross", [], CONNECT_ONESHOT)
 		zombieBlueprint.global_position = Vector2(230, 16 * rng.randi_range(1, 5) - 8)
 		zombiePath.add_child(zombieBlueprint)
 		waveCredits -= zombieBlueprint.cost
@@ -87,6 +90,7 @@ func _on_GamePhase_timeout() -> void:
 			zombieCreator = ZombieCreator.new(genericZombie)
 		var zombieBlueprint: Node2D = zombieCreator.getZombie()
 		zombieBlueprint.connect("on_death", self, "_onZombieDeath", [], CONNECT_ONESHOT)
+		zombieBlueprint.connect("cross", self, "_onZombieCross", [], CONNECT_ONESHOT)
 		zombieBlueprint.global_position = Vector2(230, 16 * rng.randi_range(1, 5) - 8)
 		zombiePath.add_child(zombieBlueprint)
 		credits -= zombieBlueprint.cost
@@ -95,6 +99,26 @@ func _on_GamePhase_timeout() -> void:
 		zombieCreator.queue_free()
 	else:
 		$GamePhase.paused = true
+
+# Displays a win animation and returns the player to the main menu
+func win() -> void:
+	var textAnimation = Entities.TextAnimation.instance()
+	textAnimation.text = "You win!"
+	Global.UI.add_child(textAnimation)
+	
+	yield(get_tree().create_timer(2.5), "timeout")
+	textAnimation.queue_free()
+	_endGame()
+
+# Displays a loss animation and returns the player to the main menu
+func lose() -> void:
+	var textAnimation = Entities.TextAnimation.instance()
+	textAnimation.text = "You lose!"
+	Global.UI.add_child(textAnimation)
+	
+	yield(get_tree().create_timer(2.5), "timeout")
+	textAnimation.queue_free()
+	_endGame()
 
 # Gets executed when a zombie dies
 # Used for updating the progress bar
@@ -105,12 +129,12 @@ func _onZombieDeath(cost: int) -> void:
 	
 	if zombieDeathCredits >= initialWaveCredits:
 		if zombieDeathCredits >= finalWaveCredits:
-			var textAnimation = Entities.TextAnimation.instance()
-			textAnimation.text = "You win!"
-			Global.UI.add_child(textAnimation)
-			
-			yield(get_tree().create_timer(2.5), "timeout")
-			textAnimation.queue_free()
-			_endGame()
+			win()
 			return
 		finalWave()
+
+# If a zombie crosses the left side of the lawnmowers, the game is lost
+func _onZombieCross() -> void:
+	if !gameLost:
+		gameLost = true
+		lose()
